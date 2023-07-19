@@ -111,7 +111,6 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             <>
               {seller && (
                 <AddToCartButton
-                 
                   skuId={productID}
                   sellerId={seller}
                   price={price ?? 0}
@@ -121,7 +120,6 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
                 />
               )}
               <WishlistButton
-               
                 variant="full"
                 productGroupID={isVariantOf?.productGroupID}
                 productID={productID}
