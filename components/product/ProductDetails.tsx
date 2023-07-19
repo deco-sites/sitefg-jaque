@@ -75,26 +75,28 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       />
       {/* Code and name */}
       <div class="mt-4 sm:mt-8">
-        <div>
-          <span class="text-sm text-base-300">
+        <div class="text-center">
+          <span class="text-xs text-base-300">
             Cod. {gtin}
           </span>
         </div>
-        <h1>
-          <span class="font-medium text-xl">{name}</span>
+        <h1 class="text-center">
+          <span class="text-3xl font-extrabold uppercase text-black">
+            {name}
+          </span>
         </h1>
       </div>
       {/* Prices */}
-      <div class="mt-4">
-        <div class="flex flex-row gap-2 items-center">
+      <div class="mt-4 text-center ">
+        <div class="flex flex-col text-center  items-center">
           <span class="line-through text-base-300 text-xs">
             {formatPrice(listPrice, offers!.priceCurrency!)}
           </span>
-          <span class="font-medium text-xl text-secondary">
+          <span class="font-extrabold text-2xl text-[#db3d68] ">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
         </div>
-        <span class="text-sm text-base-300">
+        <span class="text-xs text-center text-base-300">
           {installments}
         </span>
       </div>
@@ -103,12 +105,13 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
+      <div class="mt-4 sm:mt-10 flex flex-row gap-2">
         {availability === "https://schema.org/InStock"
           ? (
             <>
               {seller && (
                 <AddToCartButton
+                 
                   skuId={productID}
                   sellerId={seller}
                   price={price ?? 0}
@@ -118,6 +121,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
                 />
               )}
               <WishlistButton
+               
                 variant="full"
                 productGroupID={isVariantOf?.productGroupID}
                 productID={productID}
