@@ -40,12 +40,12 @@ function CardText(
 ) {
   return (
     <div
-      class={`flex flex-col ${
+      class={`flex flex-col justify-center  ${
         alignment === "center" ? "text-center" : "text-left"
       }`}
     >
       {tag && <div class="text-sm text-primary">{tag}</div>}
-      {label && <h3 class="text-lg text-base-content">{label}</h3>}
+      {label && <h3 class="text-lg text-base-content text-white">{label}</h3>}
       {description && <div class="text-sm text-neutral">{description}</div>}
     </div>
   );
@@ -81,7 +81,7 @@ function CategoryList(props: Props) {
   return (
     <div
       id={id}
-      class="container py-8 flex flex-col gap-8 lg:gap-10 text-base-content  lg:py-10"
+      class=" shadow-2xl bg-secondary mt-6 rounded-full justify-center px-10 container py-8 flex flex-col gap-8 lg:gap-10 text-base-content  lg:py-10"
     >
       <Header
         title={header.title}
@@ -89,18 +89,18 @@ function CategoryList(props: Props) {
         alignment={layout.headerAlignment || "center"}
       />
 
-      <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5">
+      <Slider class="carousel justify-center carousel-start gap-4 lg:gap-8 row-start-2 row-end-5">
         {list.map((
           { tag, label, description, href, image, buttonText },
           index,
         ) => (
           <Slider.Item
             index={index}
-            class="flex flex-col gap-4 carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
+            class="flex flex-col justify-center gap-4 carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
           >
             <a
               href={href}
-              class="flex flex-col gap-4 lg:w-[280px] w-40 lg:h-auto"
+              class="flex justify-center flex-col gap-4 lg:w-[80px] w-40 lg:h-auto"
             >
               {layout.categoryCard?.textPosition === "top" &&
                 (
@@ -115,11 +115,11 @@ function CategoryList(props: Props) {
                 (
                   <figure>
                     <Image
-                      class="card w-full"
+                      class="card w-full rounded-full"
                       src={image}
                       alt={description || label || tag}
-                      width={160}
-                      height={195}
+                      width={80}
+                      height={80}
                       loading="lazy"
                     />
                   </figure>
